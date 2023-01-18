@@ -64,11 +64,11 @@ class _NotesListState extends State<NotesList> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Text(noteList![index].title,style: const TextStyle(fontWeight: FontWeight.w900,fontSize: 20,color: Colors.black),),
+                                Text(noteList![index].title,style: const TextStyle(fontWeight: FontWeight.w900,fontSize: 20,color: Colors.black),maxLines: 1,overflow: TextOverflow.ellipsis,),
                                 const SizedBox(height: 5,),
                                 Text(noteList![index].date,style: const TextStyle(fontWeight: FontWeight.w600,fontSize: 10,color: Colors.black54),),
                                 const SizedBox(height: 20,),
-                                Text(noteList![index].description,textAlign: TextAlign.center,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 14,color: Colors.black87),),
+                                Container(padding: EdgeInsets.all(5),child: Text(noteList![index].description,textAlign: TextAlign.center,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 14,color: Colors.black87),maxLines: 3,overflow: TextOverflow.ellipsis,)),
                               ],
                             ),
                           ),

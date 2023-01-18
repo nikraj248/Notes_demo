@@ -46,23 +46,6 @@ class _NoteDetailState extends State<NoteDetail> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // ListTile(
-            //   title: DropdownButton(
-            //     items: _priorities.map((String dropDownStringItem){
-            //       return DropdownMenuItem<String>(
-            //         value: dropDownStringItem,
-            //         child: Text(dropDownStringItem),
-            //       );
-            //     }).toList(),
-            //     value: getPriorityAsString(note.priority),
-            //     onChanged: (valueSelectedByUser){
-            //       setState(() {
-            //         updatePriorityAsInt(valueSelectedByUser!);
-            //
-            //       });
-            //     },
-            //   ),
-            // ),
             TextField(
               controller: titleController,
               onChanged: (value){
@@ -78,6 +61,7 @@ class _NoteDetailState extends State<NoteDetail> {
             const SizedBox(height: 20,),
             TextField(
               controller: descController,
+              maxLines: null,
               onChanged: (value){
                 updateDescription();
               },
