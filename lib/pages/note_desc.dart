@@ -3,6 +3,7 @@ import 'package:notes_demo/models/noteModel.dart';
 import 'package:notes_demo/utils/database_helper.dart';
 import 'package:intl/intl.dart';
 
+
 class NoteDetail extends StatefulWidget {
 
   final String appBarTitle;
@@ -40,56 +41,80 @@ class _NoteDetailState extends State<NoteDetail> {
         leading: IconButton(icon: Icon(Icons.arrow_back),onPressed: (){
           moveToLastScreen();
         },),
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: titleController,
-              onChanged: (value){
-                updateTitle();
+        actions: <Widget>[
+          PopupMenuButton(
+            // add icon, by default "3 dot" icon
+            // icon: Icon(Icons.book)
+              itemBuilder: (context){
+                return [
+                  PopupMenuItem<int>(
+                    value: 0,
+                    child: Text("Delete Note"),
+                  ),
+                ];
               },
-              decoration: InputDecoration(
-                labelText: "TITLE",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4)
-                )
-              ),
-            ),
-            const SizedBox(height: 20,),
-            TextField(
-              controller: descController,
-              maxLines: null,
-              onChanged: (value){
-                updateDescription();
-              },
-              decoration: InputDecoration(
-                  labelText: "Description",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(4)
-                  )
-              ),
-            ),
-            const SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                ElevatedButton(onPressed: (){
-                  _save();
-                }, child: Text("SAVE"),
-                style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),),
-
-                const SizedBox(width: 20,),
-
-                ElevatedButton(onPressed: (){
+              onSelected:(value){
+                if(value == 0){
                   _delete();
-                }, child: Text("DELETE"),
-                  style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),),
+                }
+              }
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            padding: const EdgeInsets.only(top: 40,left: 10,right: 10,bottom: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextField(
+                  controller: titleController,
+                  maxLines: null,
+                  onChanged: (value){
+                    updateTitle();
+                  },
+                  decoration: InputDecoration(
+                    labelText: "TITLE",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(4)
+                    )
+                  ),
+                ),
+                const SizedBox(height: 20,),
+                TextField(
+                  controller: descController,
+                  maxLines: null,
+                  onChanged: (value){
+                    updateDescription();
+                  },
+                  decoration: InputDecoration(
+                      labelText: "Description",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4)
+                      )
+                  ),
+                ),
+                const SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ElevatedButton(onPressed: (){
+                      _save();
+                    }, child: Text("SAVE"),
+                    style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),),
+                    //
+                    // const SizedBox(width: 20,),
+
+                    // ElevatedButton(onPressed: (){
+                    //   _delete();
+                    // }, child: Text("DELETE"),
+                    //   style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),),
+                  ],
+                )
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
