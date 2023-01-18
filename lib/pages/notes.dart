@@ -52,22 +52,23 @@ class _NotesListState extends State<NotesList> {
                         height: 160,
                         child: Card(
                           elevation: 20,
-                          color: const Color(0xff252525),
+                          color: Colors.white70, //Color(0xff252525),
 
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
 
                           ),
                           child: Container(
-                            alignment: Alignment.center,
+                            //alignment: Alignment.center,
                             margin: EdgeInsets.all(5),
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Text(noteList![index].title,style: const TextStyle(fontWeight: FontWeight.w900,fontSize: 20,color: Colors.white),),
+                                Text(noteList![index].title,style: const TextStyle(fontWeight: FontWeight.w900,fontSize: 20,color: Colors.black),),
                                 const SizedBox(height: 5,),
-                                Text(noteList![index].date,style: const TextStyle(fontWeight: FontWeight.w600,fontSize: 10,color: Colors.white54),),
+                                Text(noteList![index].date,style: const TextStyle(fontWeight: FontWeight.w600,fontSize: 10,color: Colors.black54),),
                                 const SizedBox(height: 20,),
-                                Text(noteList![index].description,textAlign: TextAlign.center,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 14,color: Colors.white),),
+                                Text(noteList![index].description,textAlign: TextAlign.center,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 14,color: Colors.black87),),
                               ],
                             ),
                           ),
