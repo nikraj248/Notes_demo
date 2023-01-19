@@ -41,6 +41,7 @@ class _NotesListState extends State<NotesList> {
               return GestureDetector(
                 child: Container(
                   margin: const EdgeInsets.all(5),
+                  //padding: EdgeInsets.all(6),
                   child: Card(
                     elevation: 20,
 
@@ -50,6 +51,7 @@ class _NotesListState extends State<NotesList> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Container(
+                        padding: EdgeInsets.all(10),
                         child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
@@ -78,7 +80,7 @@ class _NotesListState extends State<NotesList> {
                           height: 20,
                         ),
                         Container(
-                            padding: EdgeInsets.all(5),
+                            padding: EdgeInsets.all(8),
                             child: Text(
                               noteList![index].description,
                               textAlign: TextAlign.center,
